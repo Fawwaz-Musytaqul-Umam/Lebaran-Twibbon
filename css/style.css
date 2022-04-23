@@ -1,0 +1,65 @@
+/* font */
+@import url('https://fonts.googleapis.com/css2?family=Lobster&family=Plus+Jakarta+Sans:wght@550&display=swap');
+
+/* reset */
+* {
+    padding: 0;
+    margin: 0;
+    font-family: "plus jakarta sans", sans-serif;
+}
+
+p {
+    font-size: 4.6vw;
+}
+
+/* --CODE-- */
+
+@media screen and (min-width: 200px) {
+    .belum-bisa {
+        display: none;
+    }
+
+    .row-1 {
+        text-align: center;
+        display: block;
+        height: 500px;
+        background: url(../asset/img/frepik-bg.jpg) no-repeat;
+        background-attachment: fixed;
+        background-size: cover;
+    }
+
+    .row-1 img {
+        position: absolute;
+        width: 51%;
+        top: -58px;
+        left: -4px;
+    }
+
+    .row-1 .ucapan {
+        background-color: rgba(255, 255, 255, 0.566);
+        padding-top: 120px;
+        height: 76%;
+    }
+
+    .row-1 .ucapan h1 {
+        font-size: 8vw;
+        font-family: "Lobster", cursive;
+    }
+
+    .row-1 .ucapan .pantun {
+        text-align: start;
+        width: max-content;
+        margin: 30px auto;
+        font: arial bold;
+    }
+}
+
+@media screen and (min-width: 690px) {
+    .container {
+        display: none;
+    }
+
+    .belum-bisa {
+        display: inline-block;
+    }
+}
