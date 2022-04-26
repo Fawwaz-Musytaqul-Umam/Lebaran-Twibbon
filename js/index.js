@@ -45,7 +45,7 @@ function twibbonAnimation() {
 window.addEventListener('scroll', function () {
     let scrollY = window.scrollY;
 
-    //* Row-2 Man image Animation
+    //* Row-2 man Img Animation
     if (scrollY >= 650) {
         manImage.style.right = `-50vw`;
     } else {
