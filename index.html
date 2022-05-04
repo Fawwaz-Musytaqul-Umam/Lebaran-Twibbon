@@ -50,27 +50,40 @@
                     <img src="asset/img/prev.png" alt="next" draggable="false" class="prev slider-btn">
 
                     <div class="contents">
-                        <img src="asset/template/Twibbon1.jpg" alt="Harap refresh browser" class="jumbo">
+                        <img src="asset/template/Twibbon1.png" alt="Harap refresh browser" class="jumbo">
                     </div>
 
                     <img src="asset/img/next.png" alt="next" draggable="false" class="next slider-btn">
                 </div>
 
-                <button class="pilih-twibbon">Pilih</button>
+                <div class="button">
+                    <button class="pilih-twibbon">Pilih Twibbon</button>
+
+                    <button class="upload" style="display: none;" >Upload Foto</button>
+                    <input type="file" accept="image/*" style="display: none;">
+                    
+                    <button class="share selesai" style="display: none;">Kirim <img src="asset/img/whatsApp.svg" alt="whatsApp"></button>
+                    <button class="download selesai" style="display: none;">Download</button>
+
+                    <button class="reload" onclick="location.reload()" style="display: none;"><img src="asset/img/ulangi.svg" alt="Ulangi"></button>
+                </div>
             </div>
 
             <!-- footer -->
             <footer>
-                <a href="https://github.com/Fawwaz-Musytaqul-Umam">&copy; Copyright Fawwaz Musytaqul Umam</a>
+                <a target="_blank" href="https://github.com/Fawwaz-Musytaqul-Umam/Lebaran-Twibbon">&copy; Copyright Fawwaz Musytaqul Umam</a>
             </footer>
 
         </div>
 
     </div>
 
+    <audio src="asset/audio/Eid Sa'eid Aishwa nahla.mp3" autoplay hidden></audio>
 
     <!-- JavaScript -->
     <script src="js/index.js"></script>
+    <script src="js/FileSaver.js"></script>
+    <script src="js/app.js"></script>
 </body>
 
 </html>
