@@ -56,7 +56,7 @@ document.querySelector("input").addEventListener("change", function (e) {
         download.addEventListener("click" ,function () {
             link.setAttribute("download","Lebaran 1443H")
             link.click();
-            alert("berhasil mendownload TERIMAKASIH");
+            alert("Berhasil mendownload\nTERIMAKASIH telah berkunjung ke aplikasi ini");
         })
     }
 })

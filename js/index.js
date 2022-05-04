@@ -3,7 +3,6 @@ const slidePrevBtn = document.querySelector('.prev');
 const twibbonImage = document.querySelector('.contents img');
 const manImage = document.querySelector('.man');
 const twibbonContainer = document.querySelector('.container-slider');
-// const
 
 //* Twibbon Slide Animation
 let i = 1;
