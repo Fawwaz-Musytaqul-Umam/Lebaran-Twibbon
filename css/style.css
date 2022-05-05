@@ -140,8 +140,7 @@ body {
 
     .row-2 .container-slider .button {
         display: flex;
-        justify-content: space-around;
-        max-width: 70vw;
+        max-width: 80vw;
         margin: auto;
     }
 
@@ -158,18 +157,9 @@ body {
         height: 5vh;
         font-size: 1.3em;
     }
-
-    .container-slider .button input {
-        position: relative;
-        z-index: 2;
-        opacity: 0;
-        width: 200vw;
-        top: 3vh;
-        right: 30vw;
-    }
     
     .container-slider .button button.upload{
-        width: 200vw;
+        width: 40vw;
     }
     
     .container-slider .button .selesai {
@@ -178,7 +168,7 @@ body {
     }
     
     .container-slider .button .reload {
-        width: 100vw;
+        width: 13vw;
     }
 
     .row-2 .container-slider .button button:active {
