@@ -38,7 +38,7 @@ function twibbonAnimation() {
 
     setTimeout(() => {
         twibbonImage.style.removeProperty('animation')
-    }, 200);
+    }, 500);
 }
 
 window.addEventListener('scroll', function () {
