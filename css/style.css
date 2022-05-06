@@ -20,8 +20,14 @@ body {
 }
 
 /* --CODE-- */
+.container {
+    display: none;
+}
 
-@media screen and (min-width: 200px) {
+@media screen and (min-width: 270px) {
+    .container {
+        display: block;
+    }
     .belum-bisa {
         display: none;
     }
@@ -157,16 +163,16 @@ body {
         height: 5vh;
         font-size: 1.3em;
     }
-    
-    .container-slider .button button.upload{
+
+    .container-slider .button button.upload {
         width: 40vw;
     }
-    
+
     .container-slider .button .selesai {
-        width: 30vw;
+        width: 80vw;
         font-size: 1.1em;
     }
-    
+
     .container-slider .button .reload {
         width: 13vw;
     }
@@ -195,6 +201,11 @@ body {
         text-decoration: none;
         font-weight: bold;
         font-size: 1.2em;
+    }
+
+    footer a img{
+        transform: translateY(1.2vh);
+        width: 23px;
     }
 
 }

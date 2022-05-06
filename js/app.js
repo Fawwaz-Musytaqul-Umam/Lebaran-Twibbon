@@ -9,12 +9,10 @@ let i = 1;
 slideNextBtn.addEventListener("click", function (e) {
     if (i == 6) {
         i = 1;
-        twibbonAnimation();
         twibbonImage.setAttribute("src", `asset/template/Twibbon${i}.png`);
 
     } else {
         i++;
-        twibbonAnimation();
         twibbonImage.setAttribute("src", `asset/template/Twibbon${i}.png`);
     }
 });
@@ -23,23 +21,13 @@ slideNextBtn.addEventListener("click", function (e) {
 slidePrevBtn.addEventListener("click", function (e) {
     if (i == 1) {
         i = 6;
-        twibbonAnimation();
         twibbonImage.setAttribute("src", `asset/template/Twibbon${i}.png`);
 
     } else {
         i--;
-        twibbonAnimation();
         twibbonImage.setAttribute("src", `asset/template/Twibbon${i}.png`);
     }
 });
-
-function twibbonAnimation() {
-    twibbonImage.style.animation = 'twibbon-img .2s';
-
-    setTimeout(() => {
-        twibbonImage.style.removeProperty('animation')
-    }, 500);
-}
 
 window.addEventListener('scroll', function () {
     let scrollY = window.scrollY;
@@ -89,14 +77,16 @@ upload.addEventListener("click", function () {
 
 document.querySelector("input").addEventListener("change", function (e) {
     const selesai = twibbonContainer.querySelectorAll(".button .selesai");
-    const download = document.querySelector(".download");
-
+    
     const user = document.createElement("img");
     user.src = URL.createObjectURL(e.target.files[0]);
-
+    
     user.onload = () => {
         drawCanvas(user);
-        downloadLink(download, selesai);
+        selesai.forEach(e => {
+            e.style.display = 'block';
+            e.style.width = '24vw';
+        });
     }
 })
 
@@ -104,30 +94,27 @@ function drawCanvas(user) {
     const gambarTwibbon = document.getElementById('twibbon');
     const canvas = document.getElementById('canvas');
     const context = canvas.getContext('2d');
-    canvas.height = 294;
-    canvas.width = 294;
-
-    context.drawImage(user, 0, 0, 294, 294);
-    context.drawImage(gambarTwibbon, 0, 0, 294, 294);
-
+    canvas.width = 340;
+    canvas.height = 340;
+    
+    context.drawImage(user, 0, 0, 340, 340);
+    context.drawImage(gambarTwibbon, 0, 0, 340, 340);
+    
     user.remove();
     gambarTwibbon.remove();
     upload.remove()
     input.remove()
-
+    
     reload.style.width = "10vw";
     canvas.removeAttribute("hidden");
+    downloadLink();
     _share(canvas);
 }
 
-function downloadLink(download, selesai) {
+function downloadLink() {
+    const download = document.querySelector(".download");
     const link = document.createElement("a");
     link.href = canvas.toDataURL("image/png");
-
-    selesai.forEach(e => {
-        e.style.display = 'block';
-        e.style.width = '24vw';
-    });
 
     download.addEventListener("click", function () {
         link.setAttribute("download", "Lebaran 1443H")
@@ -147,11 +134,8 @@ function _share(image) {
 }
 
 function linkText(image) {
-    return `whatsapp://send?text=${encodeURIComponent(image)} Kumandang takbir bergema, kerinduaan akhirnya berujung temu, kebahagiaan singgah di setiap rumah, maka izinkan kusampaikan minal aidzin wal faidzin, mohon maaf lahir dan batin.
-
-    Selamat hari Raya Idul Fitri 1443H
-
-
-    mau buat foto menyambut lebaran juga??
+    return `whatsapp://send?text=${encodeURIComponent(image.toDataURL("image/png"))} Kumandang takbir bergema, kerinduaan akhirnya berujung temu, kebahagiaan singgah di setiap rumah, maka izinkan kusampaikan minal aidzin wal faidzin, mohon maaf lahir dan batin.\nSelamat hari Raya Idul Fitri 1443H
+    \n\n
+    mau buat foto menyambut lebaran juga??\n
     klik link ini https://Fawwaz-Musytaqul-Umam.github.io/Lebaran-Twibbon`;
 }
