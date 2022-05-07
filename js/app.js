@@ -76,17 +76,16 @@ upload.addEventListener("click", function () {
 })
 
 document.querySelector("input").addEventListener("change", function (e) {
-    const selesai = twibbonContainer.querySelectorAll(".button .selesai");
     
     const user = document.createElement("img");
     user.src = URL.createObjectURL(e.target.files[0]);
     
     user.onload = () => {
+        const download = twibbonContainer.querySelector(".button .download");
         drawCanvas(user);
-        selesai.forEach(e => {
-            e.style.display = 'block';
-            e.style.width = '24vw';
-        });
+
+        download.style.display = 'block';
+        download.style.width = '24vw';
     }
 })
 
@@ -96,19 +95,18 @@ function drawCanvas(user) {
     const context = canvas.getContext('2d');
     canvas.width = 340;
     canvas.height = 340;
-    
+
     context.drawImage(user, 0, 0, 340, 340);
     context.drawImage(gambarTwibbon, 0, 0, 340, 340);
-    
+
     user.remove();
     gambarTwibbon.remove();
     upload.remove()
     input.remove()
-    
+
     reload.style.width = "10vw";
     canvas.removeAttribute("hidden");
     downloadLink();
-    _share(canvas);
 }
 
 function downloadLink() {
@@ -121,21 +119,4 @@ function downloadLink() {
         link.click();
         alert("Berhasil mendownload\nTERIMAKASIH telah berkunjung ke aplikasi ini");
     })
-}
-
-function _share(image) {
-    const share = document.querySelector(".share");
-    const shareLink = document.createElement("a");
-
-    shareLink.href = linkText(image);
-    share.addEventListener("click", function () {
-        shareLink.click();
-    })
-}
-
-function linkText(image) {
-    return `whatsapp://send?text=${encodeURIComponent(image.toDataURL("image/png"))} Kumandang takbir bergema, kerinduaan akhirnya berujung temu, kebahagiaan singgah di setiap rumah, maka izinkan kusampaikan minal aidzin wal faidzin, mohon maaf lahir dan batin.\nSelamat hari Raya Idul Fitri 1443H
-    \n\n
-    mau buat foto menyambut lebaran juga??\n
-    klik link ini https://Fawwaz-Musytaqul-Umam.github.io/Lebaran-Twibbon`;
 }
